@@ -33,6 +33,10 @@ function getAvailableSettings() {
       location: 'settings.playbackDolphinPath',
       defaultValue: getDolphinPath(),
     },
+    minimumGameSeconds: {
+      location: 'settings.minimumGameSeconds',
+      defaultValue: "30",
+    },
   };
 }
 

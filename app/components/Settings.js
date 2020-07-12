@@ -7,6 +7,7 @@ import {
   Header,
   Icon,
   Confirm,
+  Form,
 } from 'semantic-ui-react';
 import { getDefaultDolphinPath } from '../utils/settings';
 import PageHeader from './common/PageHeader';
@@ -244,6 +245,13 @@ export default class Settings extends Component {
         value={store.settings.rootSlpPath}
         onClick={this.props.browseFolder}
         handlerParams={['rootSlpPath']}
+      />,
+      <Form.Input
+        name="minimumGameSeconds"
+        label="Filter out games shorter than x seconds. click to console.log "
+        defaultValue={store.settings.minimumGameSeconds}
+        onClick={(e)=>{console.log("please set minimumGameSeconds to ", e.target.value)}}
+        handlerParams={[this]}
       />,
     ];
 

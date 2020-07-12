@@ -262,7 +262,7 @@ async function wait(ms) {
 
 function processFiles(files) {
   let resultFiles = files;
-
+  const minimumGameSeconds = electronSettings.get('settings.minimumGameSeconds');
   resultFiles = resultFiles.filter(file => {
     if (file.hasError) {
       // This will occur if an error was encountered while parsing
@@ -278,7 +278,7 @@ function processFiles(files) {
 
     const metadata = file.game.getMetadata() || {};
     const totalFrames = metadata.lastFrame || 30 * 60 + 1;
-    return totalFrames > 30 * 60;
+    return totalFrames > parseInt(minimumGameSeconds, 10) * 60;
   });
 
   resultFiles = _.orderBy(
